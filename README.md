@@ -1,21 +1,27 @@
 # Papertown Github Action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action runs https://github.com/ChristianKohler/papertown
+
+Papertown syncs you personal markdown blog with blog platforms like dev.to
 
 ## Inputs
 
-### `who-to-greet`
+### root-folder
 
-**Required** The name of the person to greet. Default `"World"`.
+See: https://github.com/ChristianKohler/papertown
 
-## Outputs
+### devto-api-key
 
-### `time`
+See: https://github.com/ChristianKohler/papertown
 
-The time we greeted you.
+### image-root-url-github
+
+See: https://github.com/ChristianKohler/papertown
+
+### dry-run
+
+See: https://github.com/ChristianKohler/papertown
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+tbd
