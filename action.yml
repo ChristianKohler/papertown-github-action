@@ -1,4 +1,4 @@
-name: "Publish Blog with Papertown"
+name: "Papertown Sync"
 description: "Papertown syncs you personal markdown blog with blog platforms like dev.to"
 author: "christiankohler.net"
 inputs:

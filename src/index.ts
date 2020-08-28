@@ -1,6 +1,8 @@
 import * as core from "@actions/core";
-import * as github from "@actions/github";
 import * as papertown from "papertown";
+import { SyncConfig } from "papertown/dist/lib/config";
+
+run();
 
 async function run() {
   try {
@@ -11,11 +13,18 @@ async function run() {
 }
 
 async function runPapertown() {
-  const config = {
-    rootFolder: core.getInput("root-folder"),
-    devtoApiKey: core.getInput("devto-api-key"),
-    imageRootUrlGithub: core.getInput("image-root-url-github"),
-    dryRun: JSON.parse(core.getInput("dry-run").toLowerCase()),
+  const dryRun = emptyStringToNull(core.getInput("dry-run"));
+  const rootFolder = emptyStringToNull(core.getInput("root-folder"));
+  const devtoApiKey = emptyStringToNull(core.getInput("devto-api-key"));
+  const imageRootUrlGithub = emptyStringToNull(
+    core.getInput("image-root-url-github")
+  );
+
+  const config: Partial<SyncConfig> = {
+    ...(rootFolder && { rootFolder }),
+    ...(devtoApiKey && { devtoApiKey }),
+    ...(imageRootUrlGithub && { imageRootUrlGithub }),
+    ...(dryRun && { dryRun: stringToBool(dryRun) }),
   };
 
   console.log(`Run Papertown`);
@@ -27,4 +36,10 @@ async function runPapertown() {
   await papertown.sync(config);
 }
 
-run();
+function emptyStringToNull(input: string): string | null {
+  return input === "" ? null : input;
+}
+
+function stringToBool(input: string): boolean {
+  return JSON.parse(input.toLowerCase());
+}
