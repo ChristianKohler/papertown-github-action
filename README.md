@@ -6,11 +6,11 @@ Papertown syncs you personal markdown blog with blog platforms like dev.to
 
 ## Inputs
 
-### root-folder
+### devto-api-key (required)
 
 See: https://github.com/ChristianKohler/papertown
 
-### devto-api-key
+### root-folder
 
 See: https://github.com/ChristianKohler/papertown
 
@@ -24,4 +24,9 @@ See: https://github.com/ChristianKohler/papertown
 
 ## Example usage
 
-tbd
+```yaml
+ - name: Papertown Sync
+        uses: ChristianKohler/papertown-github-action@v1.0.4
+        with:
+          devto-api-key: ${{ secrets.DEVTO_API_KEY }}
+```
