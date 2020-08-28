@@ -26,7 +26,7 @@ See: https://github.com/ChristianKohler/papertown
 
 ```yaml
  - name: Papertown Sync
-        uses: ChristianKohler/papertown-github-action@v1.0.4
+        uses: ChristianKohler/papertown-github-action@v1.0.5
         with:
           devto-api-key: ${{ secrets.DEVTO_API_KEY }}
 ```
